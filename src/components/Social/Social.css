@@ -1,0 +1,75 @@
+.social {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 1218px;
+}
+.social__items {
+  display: flex;
+
+  /* width: 1150px; */
+  position: absolute;
+  top: -150px;
+  z-index: 1;
+}
+.social__imgs {
+  display: flex;
+}
+.social__image-beauty {
+  padding-top: 69px;
+  max-width: 538px;
+  width: 100%;
+  object-fit: cover;
+}
+.social__image-hennadesign {
+  width: 534px;
+  height: 372px;
+  object-fit: cover;
+}
+.social__image-lashequip {
+  width: 536px;
+  height: 338px;
+}
+.social__image-equip {
+  /* width: 266px;
+   */
+  width: 50%;
+  height: 338px;
+  object-fit: cover;
+}
+.social__gallery {
+  max-width: 536px;
+  box-sizing: border-box;
+}
+.social__contact {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin: 0;
+  width: 536px;
+  height: 314px;
+  font-size: 70px;
+  background-color: rgb(228, 245, 247);
+  font-family: "CormorantGaramond", serif;
+
+  font-weight: 400;
+  line-height: 1.2;
+}
+.social__followus {
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+.social__links {
+  margin: 0;
+  position: absolute;
+  top: 180px;
+  /* left: 100px; */
+  font-family: "Queensides", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+.social__instagram {
+  font-size: 50px;
+}

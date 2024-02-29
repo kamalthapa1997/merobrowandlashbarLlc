@@ -1,0 +1,84 @@
+.header {
+  margin: auto;
+  /* max-width: 1000px; */
+  width: 100%;
+  max-width: 980px;
+}
+.header__navlists {
+  padding-top: 10px;
+  display: flex;
+  position: absolute;
+  margin: auto;
+  width: 100%;
+  max-width: 980px;
+  /* padding-right: 200px; */
+  justify-content: space-between;
+  box-sizing: border-box;
+  align-items: center;
+}
+.header__navlist {
+  text-decoration: none;
+  list-style: none;
+  z-index: 1;
+  font-family: "CormorantGaramond";
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #000;
+}
+.header__login {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  align-items: center;
+  height: 40px;
+  width: 100px;
+  border-radius: 100px;
+  border: 1px solid var(--simulator-gray-divider, #d1d2d6);
+  background: none;
+  margin: 0;
+  border: none;
+  z-index: 1;
+
+  font-family: "CormorantGaramond";
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.header__booknow {
+  height: 40px;
+  border: 1px;
+  background: #000;
+  color: #fff;
+  width: 100px;
+  box-sizing: border-box;
+  padding: 0;
+  z-index: 1;
+
+  font-family: "CormorantGaramond";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.header__profile-logo {
+  width: 24px;
+  height: 24px;
+}
+.header__navlist-items {
+  display: flex;
+  height: 24px;
+  gap: 30px;
+}
+.header__navlink {
+  text-decoration: none;
+  color: #000;
+}
+.header__btns {
+  align-items: center;
+  display: flex;
+  gap: 25px;
+}
+.header__text {
+  color: rgb(163, 136, 116);
+}

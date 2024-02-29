@@ -1,0 +1,22 @@
+.main {
+  /* background: url("../../images/MERO.webp") no-repeat center; */
+
+  background: url("../../images/mainwallppr.jpeg") no-repeat center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+  background-position: top;
+
+  height: 810px;
+  background-attachment: fixed;
+}
+
+.main__profile-logo {
+  margin-top: 150px;
+
+  height: 200px;
+
+  z-index: 1;
+}

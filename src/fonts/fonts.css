@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "Queensides";
+  src: url("./Queensides-3z7Ey.ttf") format("truetype");
+  /* font-weight: 500; */
+}
+
+@font-face {
+  font-family: "CormorantGaramond";
+  src: url("./CormorantGaramond-Italic.ttf") format("truetype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "CormorantGaramond";
+  src: url("./CormorantGaramond-Medium.ttf") format("truetype");
+  font-weight: 500;
+}

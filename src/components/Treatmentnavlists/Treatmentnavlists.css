@@ -1,0 +1,23 @@
+.treatmentnavlists__lists {
+  display: flex;
+  justify-content: center;
+  padding: 80px 0 0;
+  gap: 40px;
+  border-bottom: 1px solid #0003;
+  width: 500px;
+}
+.treatmentnavlists__btn {
+  height: 30px;
+  border-bottom: none;
+  border-right: none;
+  width: 70px;
+  padding: 0;
+  border: 0 0 2px 0;
+  background: none;
+  border-left: none;
+  border-top: none;
+  font-family: "CormorantGaramond", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+}
