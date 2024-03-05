@@ -1,16 +1,34 @@
+import React, { useEffect, useRef } from "react";
+import { motion, useAnimation } from "framer-motion";
 import "./Aboutus.css";
 
-// import eyelashmain from "../../images/eyelashmain.jpg";
 import eyelashmain from "../../images/eee.jpg";
-
-// import mainthread from "../../images/mainthread.jpg";
 import mainthread from "../../images/thread.jpg";
 
+import useScrollAnimation from "../Hooks/useScrollAnimation";
+
 export const Aboutus = () => {
+  const aboutusRef = useRef(null);
+  const controls = useScrollAnimation(
+    aboutusRef,
+    { opacity: 1, y: 0 },
+    {
+      y: 0,
+      x: 0,
+      opacity: 1,
+      transition: { duration: 0.2, delay: 0.3 },
+    }
+  );
+
   return (
-    <section className="aboutus">
+    <motion.section
+      className="aboutus"
+      ref={aboutusRef}
+      initial={{ opacity: 0, y: 40 }}
+      animate={controls}
+    >
       <img className="aboutus__lashimg" src={eyelashmain} alt="Eyelash"></img>
-      <div className="aboutus__infos">
+      <motion.div className="aboutus__infos">
         <div className="aboutus__details">
           <p className="aboutus__text ">WELCOME TO</p>
           <h1 className="aboutus__text-title">Mero Brow & Lash Bar</h1>
@@ -29,7 +47,7 @@ export const Aboutus = () => {
           src={mainthread}
           alt="Eyebrow Threading"
         ></img>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 };

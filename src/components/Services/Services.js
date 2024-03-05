@@ -1,9 +1,30 @@
+import React, { useEffect, useRef } from "react";
+import { motion, useAnimation } from "framer-motion";
 import "./Services.css";
 import { Appointment } from "../Appointment/Appointment";
+import useScrollAnimation from "../Hooks/useScrollAnimation";
 
 export const Services = () => {
+  const servicesRef = useRef(null);
+  const controls = useScrollAnimation(
+    servicesRef,
+    { opacity: 1, y: 0 },
+    {
+      y: 0,
+      x: 0,
+      opacity: 1,
+      transition: { duration: 0.2, delay: 0.3 },
+    }
+  );
+
   return (
-    <div className="services__items">
+    <motion.div
+      id="services"
+      className="services__items"
+      ref={servicesRef}
+      initial={{ opacity: 0, y: 40 }}
+      animate={controls}
+    >
       <div className=" services__treatments">
         <p className="services__title"> OUR TREATMENTS</p>
 
@@ -13,7 +34,6 @@ export const Services = () => {
               {" "}
               <span className="services__num">01 /</span> <br /> Eye <br /> Lash
             </p>
-            {/* <img className="services__img" src={henna} alt="henna" /> */}
             <div className="services__img services__eyelash"></div>
           </div>
           <div className="services__item">
@@ -35,6 +55,6 @@ export const Services = () => {
         </div>
         <Appointment />
       </div>
-    </div>
+    </motion.div>
   );
 };

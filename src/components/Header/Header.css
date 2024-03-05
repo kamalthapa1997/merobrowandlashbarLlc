@@ -4,8 +4,15 @@
   width: 100%;
   max-width: 980px;
 }
+.dot {
+  background-color: white;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  position: absolute;
+}
 .header__navlists {
-  padding-top: 10px;
+  /* padding-top: 10px; */
   display: flex;
   position: absolute;
   margin: auto;

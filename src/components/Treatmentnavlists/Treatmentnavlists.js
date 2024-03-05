@@ -10,8 +10,6 @@ import "./Treatmentnavlists.css";
 
 import { useEffect, useCallback } from "react";
 const Treatmentnavlists = ({ setTreatmentType }) => {
-  // const [treatmentType, setTreatmentType] = useState({});
-
   const treatmentdatas = [
     {
       type: "Eyelashes",
