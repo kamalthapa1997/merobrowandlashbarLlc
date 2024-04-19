@@ -24,8 +24,12 @@
   margin: 0;
 
   left: 42px;
-  font-family: "CormorantGaramond";
-  font-size: 60px;
+  /* font-family: "CormorantGaramond";
+  font-size: 60px; */
+  font-family: "CormorantGaramond", Times, serif;
+
+  font-size: 75px;
+  font-style: italic;
   font-weight: 500;
   line-height: 1.2;
 }
@@ -70,6 +74,10 @@
   padding: 0;
   width: 120px;
   background: #000;
+  color: #fff;
+}
+.treatment__submit-link {
+  text-decoration: none;
   color: #fff;
 }
 .treatments__text {

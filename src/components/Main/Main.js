@@ -1,11 +1,55 @@
-import "./Main.css";
-// import MERO from "../../images/MERO.webp";
+import React from "react";
+import { motion } from "framer-motion";
 import profilelogo from "../../images/logo.png";
+import "./Main.css";
+import Transition from "../Hooks/Transition";
+
 export const Main = () => {
+  const anim = (variants) => {
+    return {
+      initial: "initial",
+      animate: "enter",
+      exit: "exit",
+      variants,
+    };
+  };
+
+  const fallDown = {
+    initial: {
+      y: -300,
+      opacity: 0,
+    },
+    enter: {
+      y: 150,
+      opacity: 1,
+      transition: {
+        duration: 1.2,
+        ease: [0.76, 0, 0.24, 1],
+      },
+    },
+    exit: {
+      y: -300,
+      opacity: 0,
+      transition: {
+        duration: 1.2,
+        ease: [0.76, 0, 0.24, 1],
+      },
+    },
+  };
+
   return (
     <div className="main">
-      {/* <img className="main__bgimg" src={MERO} alt="Description of the image" /> */}
-      <img className="main__profile-logo" src={profilelogo} alt="profile" />
+      <Transition>
+        <img
+          // initial={{ opacity: 0, x: 20 }}
+          // animate={{ opacity: 1, x: 0, transition: { delay: 0.3 } }}
+          // exit={{ opacity: 0, x: 20 }}
+          // key="profile-logo"
+          className="main__profile-logo"
+          src={profilelogo}
+          alt="profile"
+        />
+      </Transition>
     </div>
   );
 };

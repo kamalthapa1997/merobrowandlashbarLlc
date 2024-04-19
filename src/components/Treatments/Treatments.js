@@ -1,33 +1,79 @@
 import "./Treatments.css";
+import Transition from "../Hooks/Transition";
 
 import Treatmentnavlists from "../Treatmentnavlists/Treatmentnavlists";
-import { useState } from "react";
+import CurrentAppointmentContext from "../Context/CurrentAppointmentContext";
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import React from "react";
+import { motion } from "framer-motion";
+import PropTypes from "prop-types";
 
-export const Treatments = () => {
+const Treatments = ({ handleAddService }) => {
   const [treatmentType, setTreatmentType] = useState({});
+
+  const currentAppointment = useContext(CurrentAppointmentContext);
+
+  const setSelectedItem = currentAppointment.setSelectedItem;
+  const selectedItem = currentAppointment.selectedItem;
+
+  const handleAppointment = (item) => () => {
+    setSelectedItem(item);
+  };
 
   return (
     <div className="treatments">
       <div className="treatments__paragraph">
         <h2 className="treatments__heading">
-          Book <br /> Online /{" "}
+          <Transition>
+            <span>
+              Book <br /> Online /{" "}
+            </span>
+          </Transition>
         </h2>
+
         <p className="treatments__texts">
-          Welcome to our hassle-free online booking section! We've simplified
-          the process with three distinct options for your convenience. Click
-          "Lash" to explore our lash extension services, "Eyebrow" for a list of
-          eyebrow treatments, and "Other" for a peek at additional services.
-          Streamlined and user-friendly, making appointments has never been this
-          easy!
+          <Transition>
+            <span>
+              Welcome to our hassle-free online booking section! We&apos;ve
+              simplified the process with three distinct options for your
+              convenience. Click &quot;Lash&quot; to explore our lash extension
+              services, &quot;Eyebrow&quot; for a list of eyebrow treatments,
+              and &quot;Other&quot; for a peek at additional services.
+              Streamlined and user-friendly, making appointments has never been
+              this easy!
+            </span>
+          </Transition>
         </p>
       </div>
 
-      <Treatmentnavlists setTreatmentType={setTreatmentType} />
+      <Treatmentnavlists
+        setTreatmentType={setTreatmentType}
+        handleAddService={handleAddService}
+      />
 
       <div className="treatments__sublists">
         {treatmentType.detail &&
           treatmentType.detail.map((items, index) => (
-            <div key={index} className="treatments__item">
+            <motion.div
+              key={`${items.title}-${index}`}
+              initial={{
+                opacity: 0,
+                y: -20,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                transition: { delay: index * 0.1, duration: 0.3 },
+              }}
+              exit={{
+                opacity: 0,
+                y: -20,
+              }}
+              className={`treatments__item ${
+                selectedItem === items ? "selected" : ""
+              }`}
+            >
               <img
                 src={items.wallpaper}
                 className="treatments__img"
@@ -47,13 +93,23 @@ export const Treatments = () => {
                   </div>
                 ))}
 
-                <button type="button" className="treatment__submit">
-                  BOOT IT
+                <button
+                  onClick={handleAppointment(items)}
+                  type="button"
+                  className="treatment__submit"
+                >
+                  <Link className="treatment__submit-link" to="/appointment">
+                    BOOK IT
+                  </Link>
                 </button>
               </div>
-            </div>
+            </motion.div>
           ))}
       </div>
     </div>
   );
 };
+Treatments.propTypes = {
+  handleAddService: PropTypes.func.isRequired,
+};
+export default Treatments;

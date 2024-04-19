@@ -1,0 +1,16 @@
+.squareappointments {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  background: #72707000;
+}
+.squareappointments__iframe {
+  border: none;
+  width: 700px;
+  height: 800px;
+}

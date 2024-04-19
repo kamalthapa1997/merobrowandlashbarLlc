@@ -6,11 +6,16 @@ import lamination from "../../images/Ttreatments/lamination.jpg";
 import lipthreading from "../../images/Ttreatments/lipthreading.jpeg";
 import threading from "../../images/Ttreatments/threading.jpg";
 import tinting from "../../images/Ttreatments/tinting.jpg";
+import PropTypes from "prop-types";
+
 import "./Treatmentnavlists.css";
 
-import { useEffect, useCallback } from "react";
-const Treatmentnavlists = ({ setTreatmentType }) => {
+import React, { useEffect, useCallback, useState } from "react";
+const Treatmentnavlists = ({ setTreatmentType, handleAddService }) => {
   // const [treatmentType, setTreatmentType] = useState({});
+  const [currentType, setCurrentType] = useState("Eyelashes");
+
+  const treatmentTypes = ["Eyelashes", "Threading", "Combo", "Others"];
 
   const treatmentdatas = [
     {
@@ -34,7 +39,7 @@ const Treatmentnavlists = ({ setTreatmentType }) => {
       ],
     },
     {
-      type: "Eyebrows",
+      type: "Threading",
       detail: [
         {
           title: "Eyebrow ",
@@ -80,11 +85,13 @@ const Treatmentnavlists = ({ setTreatmentType }) => {
         "selectedTreatmentType",
         JSON.stringify(matchingTreatment)
       );
+      setCurrentType(clickedType);
 
       setTreatmentType(matchingTreatment);
     } else {
+      setCurrentType("Eyelashes");
+
       setTreatmentType("Eyelashes");
-      console.log(`No matching treatment found for ${clickedType}`);
     }
   };
   const handleSetTreatmentType = useCallback(
@@ -104,35 +111,30 @@ const Treatmentnavlists = ({ setTreatmentType }) => {
 
   return (
     <div className="treatmentnavlists__lists">
+      {treatmentTypes.map((type, index) => (
+        <button
+          key={index}
+          className={`treatmentnavlists__btn ${
+            type === currentType ? "treatmentnavlists__btn-type" : ""
+          }`}
+          tabIndex={0}
+          onClick={() => handleTypeClick(type)}
+        >
+          {type}
+        </button>
+      ))}
+
       <button
-        className="treatmentnavlists__btn"
-        tabIndex={0}
-        onClick={() => handleTypeClick("Eyelashes")}
+        className="treatmentnavlists__add-services"
+        onClick={handleAddService}
       >
-        Eyelashs
-      </button>
-      <button
-        className="treatmentnavlists__btn"
-        tabIndex={0}
-        onClick={() => handleTypeClick("Eyebrows")}
-      >
-        Eyebrows
-      </button>
-      <button
-        className="treatmentnavlists__btn"
-        tabIndex={0}
-        onClick={() => handleTypeClick("Combo")}
-      >
-        Combo
-      </button>
-      <button
-        className="treatmentnavlists__btn"
-        tabIndex={0}
-        onClick={() => handleTypeClick("Others")}
-      >
-        Others
+        + Add Service
       </button>
     </div>
   );
+};
+Treatmentnavlists.propTypes = {
+  setTreatmentType: PropTypes.func.isRequired,
+  handleAddService: PropTypes.func.isRequired,
 };
 export default Treatmentnavlists;

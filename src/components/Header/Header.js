@@ -1,70 +1,59 @@
 import "./Header.css";
 import { Link } from "react-router-dom";
-import { Context, useContext } from "react";
+// import gsap from "gsap";
 
 import profilelogo from "../../images/profilelogo.svg";
-import { useState } from "react";
+import { useContext } from "react";
 
 import CurrentLocationContext from "../Context/CurrentLocationContext";
-export const Header = () => {
-  const [headerPosition, setHeaderPosition] = useState(false);
-
+export const Header = ({ handleLoginModal }) => {
   const currentPage = useContext(CurrentLocationContext);
 
+  ///////// ======>>>>>>>>>>>>
+
+  const navItems = [
+    { title: "Home", path: "/" },
+    { title: "Treatments", path: "/treatments" },
+    { title: "Our Story", path: "/ourstory" },
+    { title: "Contact Us", path: "/contactus" },
+  ];
+
   const getTextColorClass = (page) => {
-    console.log(currentPage.currentPage === page ? "header__text" : "");
     return currentPage.currentPage === page ? "header__text" : "";
   };
-
-  // console.log("======", getTextColorClass("/"));
-  // console.log(getTextColorClass("/treatment"));
 
   return (
     <div className="header">
       <nav className="header__navlists">
         <div className="header__navlist-items">
-          <li className={`header__navlist `}>
-            {" "}
-            <Link
-              className={`header__navlink ${getTextColorClass("/")}`}
-              to="/"
-            >
-              Home{" "}
-            </Link>
-          </li>
-
-          {/* <Link className="header__navlink" to="/treatments"> */}
-
-          <li className={`header__navlist`}>
-            {" "}
-            <Link
-              className={`header__navlink ${getTextColorClass("/treatments")}`}
-              to="/treatments"
-            >
-              Treatments{" "}
-            </Link>
-          </li>
-          {/* </Link> */}
-          <li className="header__navlist">
-            <Link to="/ourstory">Our story</Link>{" "}
-          </li>
-          <li className="header__navlist">
-            {" "}
-            <Link to="/contactus">Contact us</Link>{" "}
-          </li>
+          {navItems.map((item, index) => (
+            <li key={index} className="header__navlist">
+              <Link
+                className={`header__navlink ${getTextColorClass(item.path)}`}
+                to={item.path}
+              >
+                {item.title}
+              </Link>
+            </li>
+          ))}
         </div>
         <div className="header__btns">
-          <button type="button" className="header__booknow">
+          <button className="header__booknow" type="button">
             BOOK NOW
           </button>
-          <p className="header__login">
-            Log In{" "}
+
+          <button
+            onClick={handleLoginModal}
+            className="header__login"
+            type="button"
+          >
+            Log In
             <img
               className="header__profile-logo"
               src={profilelogo}
               alt="profile"
             />
-          </p>
+          </button>
         </div>
       </nav>
     </div>

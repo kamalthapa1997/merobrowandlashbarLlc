@@ -1,0 +1,31 @@
+.ourstory__texts {
+  max-width: 600px;
+  width: 434px;
+  margin: auto 30px auto auto;
+  display: flex;
+  font-family: "CormorantGaramond";
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.ourstory__imgs {
+  display: flex;
+  gap: 0;
+  width: 980px;
+}
+.ourstory__img {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.ourstory__paragraph {
+  /* background: antiquewhite; */
+  position: relative;
+  height: 200px;
+  width: 100%;
+  max-width: 980px;
+  /* padding-top: 200px; */
+  display: flex;
+  background: #fff;
+  height: 300px;
+}

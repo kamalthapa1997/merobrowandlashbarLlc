@@ -16,7 +16,7 @@
   width: 100%;
   max-width: 980px;
 
-  /* padding-top: 200px; */
+  padding-bottom: 40px;
   display: flex;
   background: #fff;
   /* margin: auto 30px auto auto; */
@@ -35,8 +35,11 @@
   margin: 0;
 
   left: 42px;
-  font-family: "CormorantGaramond";
-  font-size: 60px;
+  /* font-family: "CormorantGaramond";
+  font-size: 60px; */
+  font-family: "CormorantGaramond", Times, serif;
+  font-size: 75px;
+  font-style: italic;
   font-weight: 500;
   line-height: 1.2;
 }
@@ -46,7 +49,7 @@
   /* margin: auto 30px auto auto; */
 
   display: flex;
-  font-family: "CormorantGaramond";
+  font-family: "CormorantGaramond", Times, serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.2;
@@ -61,4 +64,16 @@
   max-width: 980px;
   height: 400px;
   object-fit: cover;
+}
+.contactus__text {
+  margin: 0;
+}
+.contactus__addresses {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.contactus__link {
+  text-decoration: none;
+  color: #000;
 }

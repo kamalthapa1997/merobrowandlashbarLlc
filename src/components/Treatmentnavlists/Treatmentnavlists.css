@@ -1,4 +1,4 @@
-.treatmentnavlists__lists {
+/* .treatmentnavlists__lists {
   display: flex;
   justify-content: center;
   padding: 80px 0 0;
@@ -8,7 +8,7 @@
 }
 .treatmentnavlists__btn {
   height: 30px;
-  border-bottom: none;
+  border-bottom-color: none;
   border-right: none;
   width: 70px;
   padding: 0;
@@ -20,4 +20,71 @@
   font-size: 18px;
   font-weight: 500;
   line-height: 1.2;
+  transition: border-bottom-color 0.6s ease;
+}
+.treatmentnavlists__btn-type {
+  border-bottom-color: 3px solid rgb(163, 136, 116);
+} */
+.treatmentnavlists__lists {
+  display: flex;
+  justify-content: center;
+  padding: 80px 0 0;
+  gap: 40px;
+  border-bottom: 1px solid #0003;
+  width: 670px;
+}
+
+.treatmentnavlists__btn {
+  /* Your existing styles */
+  height: 30px;
+
+  border: none;
+  width: 90px;
+  padding: 0;
+
+  background: none;
+  border-left: none;
+  border-top: none;
+  font-family: "CormorantGaramond", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+  position: relative; /* Ensure proper positioning for the pseudo-element */
+}
+
+.treatmentnavlists__btn::after {
+  content: "";
+  position: absolute;
+  bottom: -2px; /* Adjust as needed */
+  left: 0; /* Initial position */
+  width: 0;
+  height: 3px; /* Border thickness */
+  background-color: rgb(163, 136, 116); /* Color of the moving line */
+  transition: left 0.6s ease, width 0.6s ease; /* Transition the left position and width */
+}
+
+.treatmentnavlists__btn-type::after {
+  left: 0; /* Move the line to the current button */
+  width: 100%; /* Set the width to match the button */
+}
+
+.treatmentnavlists__btn:not(.treatmentnavlists__btn-type)::after {
+  width: 0; /* Hide the line for non-current type buttons */
+}
+
+.treatmentnavlists__btn-type:hover::after {
+  left: 0; /* Keep the line at the current button on hover */
+  width: 100%; /* Ensure the line covers the button on hover */
+}
+
+.treatmentnavlists__btn-type:focus::after {
+  left: 0; /* Keep the line at the current button on focus */
+  width: 100%; /* Ensure the line covers the button on focus */
+}
+.treatmentnavlists__add-services {
+  padding: 0;
+  width: 100px;
+  border: 0;
+  /* width: 200px; */
+  background: none;
 }

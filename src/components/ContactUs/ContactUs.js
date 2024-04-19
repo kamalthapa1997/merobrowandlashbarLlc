@@ -1,49 +1,64 @@
 import Treatmentnavlists from "../Treatmentnavlists/Treatmentnavlists";
 import { useState } from "react";
 import storyImg from "../../images/contactus.jpg";
+import Transition from "../Hooks/Transition";
 
 import "./ContactUs.css";
-export const ContactUs = () => {
+
+const ContactUs = () => {
   const phoneNumber = "+1234567890";
   const emailAddress = "example@example.com";
   return (
     <div className="contactus">
       <div className="contactus__paragraph">
         <h2 className="contactus__heading">
-          Our <br /> Story /{" "}
+          <Transition>
+            <span>
+              Contact <br /> Us /{" "}
+            </span>
+          </Transition>
         </h2>
 
         <div className="contactus__details">
-          <p className="contactus__texts">
-            Welcome to our hassle-free online booking section! We've simplified
-            the process with three distinct options for your convenience. Click
-            "Lash" to explore our lash extension services, "Eyebrow" for a list
-            of eyebrow treatments, and "Other" for a peek at additional
-            services. Streamlined and user-friendly, making appointments has
-            never been this easy!
-          </p>
+          <Transition>
+            <p className="contactus__texts">
+              Welcome to our hassle-free online booking section! We've
+              simplified the process with three distinct options for your
+              convenience. Click "Lash" to explore our lash extension services,
+              "Eyebrow" for a list of eyebrow treatments, and "Other" for a peek
+              at additional services. Streamlined and user-friendly, making
+              appointments has never been this easy!
+            </p>
 
-          <div className="contactus__detail">
-            <div className="contactus__addresses">
-              <p> OUR ADDRESS</p>
-              <p>
-                4206 QueensBury Rd.
-                <br />
-                Hyattsville, MD 20781 <br />
-              </p>
-              <p>
-                Phone: <a href={`tel:${phoneNumber}`}>{phoneNumber}</a>
-              </p>
-              <p>
-                Email: <a href={`mailto:${emailAddress}`}>{emailAddress}</a>
-              </p>
-            </div>
+            <div className="contactus__detail">
+              <div className="contactus__addresses">
+                <p className="contactus__text"> OUR ADDRESS</p>
+                <p className="contactus__text">
+                  4206 QueensBury Rd.
+                  <br />
+                  Hyattsville, MD 20781 <br />
+                </p>
+                <p className="contactus__text">
+                  <a className="contactus__link" href={`tel:${phoneNumber}`}>
+                    {phoneNumber}
+                  </a>
+                </p>
+                <p className="contactus__text">
+                  <a
+                    className="contactus__link"
+                    href={`mailto:${emailAddress}`}
+                  >
+                    {emailAddress}
+                  </a>
+                </p>
+              </div>
 
-            <div className="contactus__hours ">
-              <p>OPENING HOURS</p>
-              <p>Tue-Sun: 10am - 8pm</p>
+              <div className="contactus__addresses ">
+                <p className="contactus__text"> OPENING HOURS</p>
+                <p className="contactus__text">Tue-Sun: 10am - 8pm</p>
+              </div>
             </div>
-          </div>
+          </Transition>
         </div>
       </div>
       <img src={storyImg} className="contactus__img" alt="Eyelash Story"></img>
@@ -61,3 +76,5 @@ export const ContactUs = () => {
     </div>
   );
 };
+
+export default ContactUs;
